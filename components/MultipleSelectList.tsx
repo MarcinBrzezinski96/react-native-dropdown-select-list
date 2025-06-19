@@ -248,6 +248,10 @@ const MultipleSelectList: React.FC<MultipleSelectListProps> = ({
             >
               {filtereddata.length >= 1 ? (
                 filtereddata.map((item: L1Keys, index: number) => {
+                  console.log("item", item);
+                  console.log("selectedval", selectedval);
+                  console.log("defaultOptions", defaultOptions);
+                  console.log("typeof", typeof item?.key, typeof item?.value);
                   let key = item.key ?? item.value ?? item;
                   let value = item.value ?? item;
                   let disabled = item.disabled ?? false;
@@ -327,6 +331,7 @@ const MultipleSelectList: React.FC<MultipleSelectListProps> = ({
 
                             setSelectedVal((val: any) => {
                               let temp = [...new Set([...val, value])];
+                              console.log("temp", temp);
                               return temp;
                             });
 
