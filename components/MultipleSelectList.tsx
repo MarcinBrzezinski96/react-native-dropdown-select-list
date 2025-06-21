@@ -98,8 +98,8 @@ const MultipleSelectList: React.FC<MultipleSelectListProps> = ({
     let defaultOptionsHasChanged = false;
     defaultOptions?.forEach((item, index) => {
       if (
-        item.key !== oldOption.current[index].key ||
-        item.value !== oldOption.current[index].value
+        item?.key !== oldOption?.current[index]?.key ||
+        item?.value !== oldOption?.current[index]?.value
       ) {
         defaultOptionsHasChanged = true;
       }
