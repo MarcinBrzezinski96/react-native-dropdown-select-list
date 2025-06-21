@@ -95,6 +95,23 @@ const MultipleSelectList: React.FC<MultipleSelectListProps> = ({
   });
 
   React.useEffect(() => {
+    if (
+      !_firstRender &&
+      defaultOptions &&
+      oldOption.current != defaultOptions
+    ) {
+      oldOption.current = [...defaultOptions];
+      setSelected(defaultOptions.map((item) => item.key));
+      setSelectedVal(defaultOptions.map((item) => item.value));
+    }
+    if (defaultOptions && _firstRender && defaultOptions != undefined) {
+      oldOption.current = [...defaultOptions];
+      setSelected(defaultOptions.map((item) => item.key));
+      setSelectedVal(defaultOptions.map((item) => item.value));
+    }
+  }, [defaultOptions]);
+
+  React.useEffect(() => {
     if (!_firstRender) {
       if (dropdownShown) slidedown();
       else slideup();
